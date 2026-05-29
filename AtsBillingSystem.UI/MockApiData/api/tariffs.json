@@ -1,0 +1,38 @@
+[
+  {
+    "id": "11111111-1111-1111-1111-111111111111",
+    "name": "Базовый",
+    "internalMinutePrice": 1.50,
+    "cityMinutePrice": 3.00,
+    "connectionFee": 0,
+    "subscriptionFee": 150.00,
+    "isArchived": false
+  },
+  {
+    "id": "22222222-2222-2222-2222-222222222222",
+    "name": "Корпоративный",
+    "internalMinutePrice": 1.00,
+    "cityMinutePrice": 2.50,
+    "connectionFee": 0.50,
+    "subscriptionFee": 300.00,
+    "isArchived": false
+  },
+  {
+    "id": "33333333-3333-3333-3333-333333333333",
+    "name": "Безлимитный офис",
+    "internalMinutePrice": 0.80,
+    "cityMinutePrice": 2.00,
+    "connectionFee": 0,
+    "subscriptionFee": 500.00,
+    "isArchived": false
+  },
+  {
+    "id": "44444444-4444-4444-4444-444444444444",
+    "name": "Эконом (архив)",
+    "internalMinutePrice": 2.00,
+    "cityMinutePrice": 4.50,
+    "connectionFee": 1.00,
+    "subscriptionFee": 99.00,
+    "isArchived": true
+  }
+]

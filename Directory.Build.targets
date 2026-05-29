@@ -1,0 +1,21 @@
+<Project>
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'AtsBillingSystem.UI'">
+    <ProjectReference Include="$(MSBuildThisFileDirectory)AtsBillingSystem.Infrastructure.Json\AtsBillingSystem.Infrastructure.Json.csproj" />
+    <ProjectReference Remove="@(ProjectReference)" Condition="$([System.String]::Copy('%(Filename)').Equals('AtsBillingSystem.Data'))" />
+    <PackageReference Remove="Microsoft.EntityFrameworkCore" />
+    <PackageReference Remove="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'AtsBillingSystem.UI'">
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="MockApiData\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

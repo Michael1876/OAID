@@ -1,0 +1,67 @@
+﻿<Application x:Class="AtsBillingSystem.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AtsBillingSystem.UI">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="PrimaryColor" Color="#6200EE"/>
+        <SolidColorBrush x:Key="HoverColor" Color="#3700B3"/>
+        <SolidColorBrush x:Key="BackgroundColor" Color="#F5F5F6"/>
+        <SolidColorBrush x:Key="SurfaceColor" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TextColor" Color="#212121"/>
+        <SolidColorBrush x:Key="DividerColor" Color="#E0E0E0"/>
+        <Style x:Key="MaterialButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource HoverColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#BDBDBD"/>
+                                <Setter Property="Foreground" Value="#757575"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MenuButtonStyle" TargetType="Button" BasedOn="{StaticResource MaterialButtonStyle}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="24,12"/>
+            <Setter Property="Margin" Value="0,4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="0,24,24,0" Margin="0,0,16,0">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E3F2FD"/>
+                                <Setter Property="Foreground" Value="{StaticResource PrimaryColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

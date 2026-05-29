@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="AtsBillingSystem.UI.Views.CallLogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewmodels="clr-namespace:AtsBillingSystem.UI.ViewModels"
+             xmlns:converters="clr-namespace:AtsBillingSystem.UI.Infrastructure.Converters"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:CallLogViewModel}"
+             d:DesignHeight="600" d:DesignWidth="900"
+             Background="Transparent">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:CallTypeConverter x:Key="CallTypeConverter"/>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceColor}" Padding="20" 
+                BorderBrush="{DynamicResource DividerColor}" BorderThickness="0,0,0,1">
+            <WrapPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Журнал звонков" FontSize="20" FontWeight="SemiBold" 
+                           Foreground="{DynamicResource TextColor}" Margin="0,0,30,0"
+                           VerticalAlignment="Center"/>
+
+                <TextBlock Text="Загрузка..." Margin="0,0,20,0" 
+                           Foreground="{DynamicResource PrimaryColor}"
+                           VerticalAlignment="Center"
+                           Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                <TextBlock Text="С:" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource TextColor}"/>
+                <DatePicker SelectedDate="{Binding FilterStartDate}" Width="110" Margin="0,0,15,0"/>
+
+                <TextBlock Text="По:" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource TextColor}"/>
+                <DatePicker SelectedDate="{Binding FilterEndDate}" Width="110" Margin="0,0,15,0"/>
+
+                <TextBlock Text="Номер:" VerticalAlignment="Center" Margin="0,0,5,0" Foreground="{DynamicResource TextColor}"/>
+                <TextBox Text="{Binding SearchPhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
+                         Width="130" Padding="4" Margin="0,0,15,0"/>
+
+                <Button Content="Применить" 
+                        Command="{Binding ApplyFilterCommand}"
+                        Style="{DynamicResource MaterialButtonStyle}"
+                        Padding="15,5"/>
+            </WrapPanel>
+        </Border>
+
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding Calls}" 
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="Horizontal"
+                  HorizontalGridLinesBrush="{DynamicResource DividerColor}"
+                  Background="{DynamicResource SurfaceColor}"
+                  BorderThickness="0"
+                  RowHeight="40"
+                  Margin="20">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="{DynamicResource SurfaceColor}"/>
+                    <Setter Property="Foreground" Value="#757575"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Padding" Value="10,0"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource DividerColor}"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата и время" Binding="{Binding StartTime, StringFormat=\{0:dd.MM.yyyy HH:mm:ss\}}" Width="140"/>
+                <DataGridTextColumn Header="Назначение" Binding="{Binding DestinationNumber}" Width="150"/>
+                <DataGridTextColumn Header="Длительность (сек)" Binding="{Binding DurationSeconds}" Width="130"/>
+
+                <DataGridTextColumn Header="Тип вызова" Binding="{Binding CallType, Converter={StaticResource CallTypeConverter}}" Width="150"/>
+
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost, StringFormat=\{0:C2\}}" Width="120">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Margin" Value="0,0,10,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="2" Background="{DynamicResource SurfaceColor}" Padding="15"
+                BorderBrush="{DynamicResource DividerColor}" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                <Button Content="Назад" 
+                        Command="{Binding PreviousPageCommand}"
+                        Style="{DynamicResource MaterialButtonStyle}"
+                        Padding="15,5" Margin="0,0,10,0"/>
+
+                <TextBlock VerticalAlignment="Center" Margin="10,0" Foreground="{DynamicResource TextColor}">
+                    <Run Text="Страница "/>
+                    <Run Text="{Binding CurrentPage, Mode=OneWay}"/>
+                    <Run Text=" из "/>
+                    <Run Text="{Binding TotalPages, Mode=OneWay}"/>
+                </TextBlock>
+
+                <Button Content="Вперед" 
+                        Command="{Binding NextPageCommand}"
+                        Style="{DynamicResource MaterialButtonStyle}"
+                        Padding="15,5" Margin="10,0,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

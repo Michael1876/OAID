@@ -1,0 +1,202 @@
+[
+  {
+    "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "fullName": "Иванов Иван Иванович",
+    "contractNumber": "DOG-2024-001",
+    "phoneNumber": "74951234501",
+    "balance": 1250.50,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDBA=="
+  },
+  {
+    "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "fullName": "Петрова Анна Сергеевна",
+    "contractNumber": "DOG-2024-002",
+    "phoneNumber": "74951234502",
+    "balance": 430.00,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDBQ=="
+  },
+  {
+    "id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "fullName": "Сидоров Пётр Алексеевич",
+    "contractNumber": "DOG-2024-003",
+    "phoneNumber": "74957654321",
+    "balance": 89.75,
+    "isActive": true,
+    "tariffId": "22222222-2222-2222-2222-222222222222",
+    "rowVersion": "AQIDBg=="
+  },
+  {
+    "id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    "fullName": "Козлова Мария Викторовна",
+    "contractNumber": "DOG-2024-004",
+    "phoneNumber": "74959876543",
+    "balance": 2100.00,
+    "isActive": false,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDBw=="
+  },
+  {
+    "id": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "fullName": "Николаев Дмитрий Олегович",
+    "contractNumber": "DOG-2024-005",
+    "phoneNumber": "74951234503",
+    "balance": 567.20,
+    "isActive": true,
+    "tariffId": "33333333-3333-3333-3333-333333333333",
+    "rowVersion": "AQIDCA=="
+  },
+  {
+    "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "fullName": "Смирнова Елена Андреевна",
+    "contractNumber": "DOG-2024-006",
+    "phoneNumber": "74951234504",
+    "balance": 1890.00,
+    "isActive": true,
+    "tariffId": "22222222-2222-2222-2222-222222222222",
+    "rowVersion": "AQIDCQ=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000001",
+    "fullName": "Волков Артём Сергеевич",
+    "contractNumber": "DOG-2024-007",
+    "phoneNumber": "74951234505",
+    "balance": 320.15,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDCg=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000002",
+    "fullName": "Морозова Ольга Петровна",
+    "contractNumber": "DOG-2024-008",
+    "phoneNumber": "74951234506",
+    "balance": 745.80,
+    "isActive": true,
+    "tariffId": "33333333-3333-3333-3333-333333333333",
+    "rowVersion": "AQIDCw=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000003",
+    "fullName": "Лебедев Константин Игоревич",
+    "contractNumber": "DOG-2024-009",
+    "phoneNumber": "74951234507",
+    "balance": 0.00,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDDA=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000004",
+    "fullName": "Новикова Татьяна Владимировна",
+    "contractNumber": "DOG-2024-010",
+    "phoneNumber": "74951234508",
+    "balance": 1523.40,
+    "isActive": true,
+    "tariffId": "22222222-2222-2222-2222-222222222222",
+    "rowVersion": "AQIDDQ=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000005",
+    "fullName": "Кузнецов Роман Александрович",
+    "contractNumber": "DOG-2025-011",
+    "phoneNumber": "74957654322",
+    "balance": 412.60,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDDg=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000006",
+    "fullName": "Соколова Виктория Николаевна",
+    "contractNumber": "DOG-2025-012",
+    "phoneNumber": "74957654323",
+    "balance": 980.25,
+    "isActive": true,
+    "tariffId": "33333333-3333-3333-3333-333333333333",
+    "rowVersion": "AQIDDw=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000007",
+    "fullName": "Попов Михаил Евгеньевич",
+    "contractNumber": "DOG-2025-013",
+    "phoneNumber": "74959876544",
+    "balance": 156.00,
+    "isActive": true,
+    "tariffId": "22222222-2222-2222-2222-222222222222",
+    "rowVersion": "AQIDEA=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000008",
+    "fullName": "Васильева Ирина Дмитриевна",
+    "contractNumber": "DOG-2025-014",
+    "phoneNumber": "74959876545",
+    "balance": 2340.90,
+    "isActive": true,
+    "tariffId": "33333333-3333-3333-3333-333333333333",
+    "rowVersion": "AQIDEQ=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000009",
+    "fullName": "Фёдоров Глеб Анатольевич",
+    "contractNumber": "DOG-2025-015",
+    "phoneNumber": "74951110001",
+    "balance": 678.30,
+    "isActive": false,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDEg=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000010",
+    "fullName": "Михайлова Светлана Юрьевна",
+    "contractNumber": "DOG-2025-016",
+    "phoneNumber": "74951110002",
+    "balance": 445.00,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDEw=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000011",
+    "fullName": "Алексеев Павел Викторович",
+    "contractNumber": "DOG-2025-017",
+    "phoneNumber": "74952220001",
+    "balance": 1120.00,
+    "isActive": true,
+    "tariffId": "22222222-2222-2222-2222-222222222222",
+    "rowVersion": "AQIDFA=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000012",
+    "fullName": "Егорова Наталья Сергеевна",
+    "contractNumber": "DOG-2025-018",
+    "phoneNumber": "74952220002",
+    "balance": 299.99,
+    "isActive": true,
+    "tariffId": "33333333-3333-3333-3333-333333333333",
+    "rowVersion": "AQIDFQ=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000013",
+    "fullName": "Романов Андрей Кириллович",
+    "contractNumber": "DOG-2025-019",
+    "phoneNumber": "74953330001",
+    "balance": 870.50,
+    "isActive": true,
+    "tariffId": "11111111-1111-1111-1111-111111111111",
+    "rowVersion": "AQIDFg=="
+  },
+  {
+    "id": "a1000001-0000-0000-0000-000000000014",
+    "fullName": "Орлова Ксения Максимовна",
+    "contractNumber": "DOG-2025-020",
+    "phoneNumber": "74953330002",
+    "balance": 5010.00,
+    "isActive": true,
+    "tariffId": "22222222-2222-2222-2222-222222222222",
+    "rowVersion": "AQIDFw=="
+  }
+]

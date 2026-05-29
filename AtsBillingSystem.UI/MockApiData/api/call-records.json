@@ -1,0 +1,767 @@
+[
+  {
+    "id": "c1000001-0000-0000-0000-000000000001",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74951234599",
+    "startTime": "2025-05-01T09:15:00",
+    "durationSeconds": 125,
+    "callType": "Internal",
+    "cost": 3.05
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000002",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74951112233",
+    "startTime": "2025-05-03T11:20:00",
+    "durationSeconds": 45,
+    "callType": "Internal",
+    "cost": 1.13
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000003",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74957654399",
+    "startTime": "2025-05-05T16:40:00",
+    "durationSeconds": 210,
+    "callType": "City",
+    "cost": 10.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000004",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74957654321",
+    "startTime": "2025-05-02T14:30:00",
+    "durationSeconds": 340,
+    "callType": "City",
+    "cost": 17.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000005",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74951234501",
+    "startTime": "2025-05-08T10:05:00",
+    "durationSeconds": 90,
+    "callType": "Internal",
+    "cost": 2.25
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000006",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74959870123",
+    "startTime": "2025-05-12T18:55:00",
+    "durationSeconds": 600,
+    "callType": "City",
+    "cost": 30.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000007",
+    "subscriberId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "destinationNumber": "74957654322",
+    "startTime": "2025-05-04T08:00:00",
+    "durationSeconds": 180,
+    "callType": "Internal",
+    "cost": 3.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000008",
+    "subscriberId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "destinationNumber": "74951234000",
+    "startTime": "2025-05-10T13:25:00",
+    "durationSeconds": 420,
+    "callType": "City",
+    "cost": 17.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000009",
+    "subscriberId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "destinationNumber": "74951234504",
+    "startTime": "2025-05-06T09:30:00",
+    "durationSeconds": 240,
+    "callType": "Internal",
+    "cost": 3.20
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000010",
+    "subscriberId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "destinationNumber": "74959998877",
+    "startTime": "2025-05-14T15:10:00",
+    "durationSeconds": 150,
+    "callType": "City",
+    "cost": 5.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000011",
+    "subscriberId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "destinationNumber": "74951234503",
+    "startTime": "2025-05-07T11:45:00",
+    "durationSeconds": 300,
+    "callType": "Internal",
+    "cost": 5.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000012",
+    "subscriberId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "destinationNumber": "74957654001",
+    "startTime": "2025-05-15T19:00:00",
+    "durationSeconds": 720,
+    "callType": "City",
+    "cost": 30.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000013",
+    "subscriberId": "a1000001-0000-0000-0000-000000000001",
+    "destinationNumber": "74951234506",
+    "startTime": "2025-05-09T12:00:00",
+    "durationSeconds": 60,
+    "callType": "Internal",
+    "cost": 1.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000014",
+    "subscriberId": "a1000001-0000-0000-0000-000000000001",
+    "destinationNumber": "74958887766",
+    "startTime": "2025-05-18T17:30:00",
+    "durationSeconds": 480,
+    "callType": "City",
+    "cost": 24.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000015",
+    "subscriberId": "a1000001-0000-0000-0000-000000000002",
+    "destinationNumber": "74951234507",
+    "startTime": "2025-05-11T08:15:00",
+    "durationSeconds": 200,
+    "callType": "Internal",
+    "cost": 2.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000016",
+    "subscriberId": "a1000001-0000-0000-0000-000000000002",
+    "destinationNumber": "74957654323",
+    "startTime": "2025-05-20T14:00:00",
+    "durationSeconds": 95,
+    "callType": "City",
+    "cost": 3.17
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000017",
+    "subscriberId": "a1000001-0000-0000-0000-000000000004",
+    "destinationNumber": "74951234502",
+    "startTime": "2025-05-13T10:30:00",
+    "durationSeconds": 360,
+    "callType": "Internal",
+    "cost": 9.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000018",
+    "subscriberId": "a1000001-0000-0000-0000-000000000004",
+    "destinationNumber": "74951119988",
+    "startTime": "2025-05-22T16:20:00",
+    "durationSeconds": 120,
+    "callType": "City",
+    "cost": 6.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000019",
+    "subscriberId": "a1000001-0000-0000-0000-000000000005",
+    "destinationNumber": "74957654324",
+    "startTime": "2025-04-28T09:00:00",
+    "durationSeconds": 180,
+    "callType": "Internal",
+    "cost": 4.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000020",
+    "subscriberId": "a1000001-0000-0000-0000-000000000005",
+    "destinationNumber": "74951234508",
+    "startTime": "2025-05-16T11:10:00",
+    "durationSeconds": 75,
+    "callType": "Internal",
+    "cost": 1.88
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000021",
+    "subscriberId": "a1000001-0000-0000-0000-000000000006",
+    "destinationNumber": "74959876550",
+    "startTime": "2025-05-17T13:45:00",
+    "durationSeconds": 540,
+    "callType": "City",
+    "cost": 18.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000022",
+    "subscriberId": "a1000001-0000-0000-0000-000000000006",
+    "destinationNumber": "74951234505",
+    "startTime": "2025-05-21T09:25:00",
+    "durationSeconds": 30,
+    "callType": "Internal",
+    "cost": 0.40
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000023",
+    "subscriberId": "a1000001-0000-0000-0000-000000000007",
+    "destinationNumber": "74957654325",
+    "startTime": "2025-05-19T15:50:00",
+    "durationSeconds": 400,
+    "callType": "City",
+    "cost": 16.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000024",
+    "subscriberId": "a1000001-0000-0000-0000-000000000008",
+    "destinationNumber": "74951234501",
+    "startTime": "2025-05-23T08:40:00",
+    "durationSeconds": 165,
+    "callType": "Internal",
+    "cost": 2.20
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000025",
+    "subscriberId": "a1000001-0000-0000-0000-000000000010",
+    "destinationNumber": "74951110003",
+    "startTime": "2025-05-24T12:15:00",
+    "durationSeconds": 255,
+    "callType": "Internal",
+    "cost": 6.38
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000026",
+    "subscriberId": "a1000001-0000-0000-0000-000000000010",
+    "destinationNumber": "74957777001",
+    "startTime": "2025-05-25T17:00:00",
+    "durationSeconds": 90,
+    "callType": "City",
+    "cost": 4.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000027",
+    "subscriberId": "a1000001-0000-0000-0000-000000000011",
+    "destinationNumber": "74952220003",
+    "startTime": "2025-05-15T07:30:00",
+    "durationSeconds": 600,
+    "callType": "Internal",
+    "cost": 10.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000028",
+    "subscriberId": "a1000001-0000-0000-0000-000000000011",
+    "destinationNumber": "74951234509",
+    "startTime": "2025-05-26T10:00:00",
+    "durationSeconds": 45,
+    "callType": "Internal",
+    "cost": 0.75
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000029",
+    "subscriberId": "a1000001-0000-0000-0000-000000000012",
+    "destinationNumber": "74953330001",
+    "startTime": "2025-05-18T14:20:00",
+    "durationSeconds": 320,
+    "callType": "City",
+    "cost": 10.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000030",
+    "subscriberId": "a1000001-0000-0000-0000-000000000013",
+    "destinationNumber": "74951234510",
+    "startTime": "2025-05-27T11:35:00",
+    "durationSeconds": 140,
+    "callType": "Internal",
+    "cost": 3.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000031",
+    "subscriberId": "a1000001-0000-0000-0000-000000000014",
+    "destinationNumber": "74957654330",
+    "startTime": "2025-05-28T16:50:00",
+    "durationSeconds": 900,
+    "callType": "City",
+    "cost": 37.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000032",
+    "subscriberId": "a1000001-0000-0000-0000-000000000014",
+    "destinationNumber": "74951234511",
+    "startTime": "2025-05-28T18:10:00",
+    "durationSeconds": 25,
+    "callType": "Internal",
+    "cost": 0.42
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000033",
+    "subscriberId": "a1000001-0000-0000-0000-000000000003",
+    "destinationNumber": "74951234599",
+    "startTime": "2025-04-15T10:00:00",
+    "durationSeconds": 60,
+    "callType": "Internal",
+    "cost": 1.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000034",
+    "subscriberId": "a1000001-0000-0000-0000-000000000009",
+    "destinationNumber": "74951110010",
+    "startTime": "2025-04-20T12:30:00",
+    "durationSeconds": 200,
+    "callType": "Internal",
+    "cost": 5.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000035",
+    "subscriberId": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    "destinationNumber": "74951234507",
+    "startTime": "2025-03-10T09:00:00",
+    "durationSeconds": 300,
+    "callType": "Internal",
+    "cost": 7.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000036",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74951234502",
+    "startTime": "2025-05-29T08:10:00",
+    "durationSeconds": 95,
+    "callType": "Internal",
+    "cost": 2.38
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000037",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74959871234",
+    "startTime": "2025-05-29T08:45:00",
+    "durationSeconds": 420,
+    "callType": "City",
+    "cost": 21.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000038",
+    "subscriberId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "destinationNumber": "74951234503",
+    "startTime": "2025-05-29T09:20:00",
+    "durationSeconds": 180,
+    "callType": "City",
+    "cost": 7.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000039",
+    "subscriberId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "destinationNumber": "74951234505",
+    "startTime": "2025-05-29T10:00:00",
+    "durationSeconds": 60,
+    "callType": "Internal",
+    "cost": 0.80
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000040",
+    "subscriberId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "destinationNumber": "74957654399",
+    "startTime": "2025-05-29T10:35:00",
+    "durationSeconds": 510,
+    "callType": "City",
+    "cost": 21.25
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000041",
+    "subscriberId": "a1000001-0000-0000-0000-000000000001",
+    "destinationNumber": "74951234508",
+    "startTime": "2025-05-29T11:15:00",
+    "durationSeconds": 140,
+    "callType": "Internal",
+    "cost": 3.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000042",
+    "subscriberId": "a1000001-0000-0000-0000-000000000002",
+    "destinationNumber": "74953330002",
+    "startTime": "2025-05-29T12:00:00",
+    "durationSeconds": 320,
+    "callType": "City",
+    "cost": 10.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000043",
+    "subscriberId": "a1000001-0000-0000-0000-000000000003",
+    "destinationNumber": "74951234506",
+    "startTime": "2025-05-29T12:40:00",
+    "durationSeconds": 25,
+    "callType": "Internal",
+    "cost": 0.63
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000044",
+    "subscriberId": "a1000001-0000-0000-0000-000000000004",
+    "destinationNumber": "74957654330",
+    "startTime": "2025-05-29T13:25:00",
+    "durationSeconds": 600,
+    "callType": "City",
+    "cost": 25.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000045",
+    "subscriberId": "a1000001-0000-0000-0000-000000000005",
+    "destinationNumber": "74951234501",
+    "startTime": "2025-05-29T14:10:00",
+    "durationSeconds": 75,
+    "callType": "Internal",
+    "cost": 1.88
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000046",
+    "subscriberId": "a1000001-0000-0000-0000-000000000006",
+    "destinationNumber": "74951110002",
+    "startTime": "2025-05-29T15:00:00",
+    "durationSeconds": 200,
+    "callType": "Internal",
+    "cost": 2.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000047",
+    "subscriberId": "a1000001-0000-0000-0000-000000000007",
+    "destinationNumber": "74958880001",
+    "startTime": "2025-05-29T15:45:00",
+    "durationSeconds": 450,
+    "callType": "City",
+    "cost": 18.75
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000048",
+    "subscriberId": "a1000001-0000-0000-0000-000000000008",
+    "destinationNumber": "74952220001",
+    "startTime": "2025-05-29T16:30:00",
+    "durationSeconds": 90,
+    "callType": "City",
+    "cost": 3.75
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000049",
+    "subscriberId": "a1000001-0000-0000-0000-000000000010",
+    "destinationNumber": "74951234504",
+    "startTime": "2025-05-29T17:05:00",
+    "durationSeconds": 360,
+    "callType": "Internal",
+    "cost": 9.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000050",
+    "subscriberId": "a1000001-0000-0000-0000-000000000011",
+    "destinationNumber": "74951234510",
+    "startTime": "2025-05-29T17:50:00",
+    "durationSeconds": 120,
+    "callType": "Internal",
+    "cost": 2.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000051",
+    "subscriberId": "a1000001-0000-0000-0000-000000000012",
+    "destinationNumber": "74957654321",
+    "startTime": "2025-05-30T08:00:00",
+    "durationSeconds": 280,
+    "callType": "City",
+    "cost": 9.33
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000052",
+    "subscriberId": "a1000001-0000-0000-0000-000000000013",
+    "destinationNumber": "74951234599",
+    "startTime": "2025-05-30T08:30:00",
+    "durationSeconds": 45,
+    "callType": "Internal",
+    "cost": 1.13
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000053",
+    "subscriberId": "a1000001-0000-0000-0000-000000000014",
+    "destinationNumber": "74959876543",
+    "startTime": "2025-05-30T09:15:00",
+    "durationSeconds": 540,
+    "callType": "City",
+    "cost": 22.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000054",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74957654322",
+    "startTime": "2025-05-30T10:00:00",
+    "durationSeconds": 310,
+    "callType": "City",
+    "cost": 15.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000055",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74951234507",
+    "startTime": "2025-05-30T10:45:00",
+    "durationSeconds": 65,
+    "callType": "Internal",
+    "cost": 1.63
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000056",
+    "subscriberId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "destinationNumber": "74951234508",
+    "startTime": "2025-05-30T11:20:00",
+    "durationSeconds": 150,
+    "callType": "Internal",
+    "cost": 2.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000057",
+    "subscriberId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "destinationNumber": "74951112233",
+    "startTime": "2025-05-30T12:05:00",
+    "durationSeconds": 400,
+    "callType": "Internal",
+    "cost": 10.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000058",
+    "subscriberId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "destinationNumber": "74951234509",
+    "startTime": "2025-05-30T13:00:00",
+    "durationSeconds": 220,
+    "callType": "Internal",
+    "cost": 3.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000059",
+    "subscriberId": "a1000001-0000-0000-0000-000000000001",
+    "destinationNumber": "74959990011",
+    "startTime": "2025-05-30T14:00:00",
+    "durationSeconds": 480,
+    "callType": "City",
+    "cost": 24.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000060",
+    "subscriberId": "a1000001-0000-0000-0000-000000000009",
+    "destinationNumber": "74951234503",
+    "startTime": "2025-05-30T15:30:00",
+    "durationSeconds": 180,
+    "callType": "Internal",
+    "cost": 4.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000061",
+    "subscriberId": "a1000001-0000-0000-0000-000000000010",
+    "destinationNumber": "74957654324",
+    "startTime": "2025-05-31T09:00:00",
+    "durationSeconds": 350,
+    "callType": "City",
+    "cost": 14.58
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000062",
+    "subscriberId": "a1000001-0000-0000-0000-000000000011",
+    "destinationNumber": "74953330001",
+    "startTime": "2025-05-31T10:20:00",
+    "durationSeconds": 55,
+    "callType": "City",
+    "cost": 2.29
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000063",
+    "subscriberId": "a1000001-0000-0000-0000-000000000012",
+    "destinationNumber": "74951234501",
+    "startTime": "2025-05-31T11:00:00",
+    "durationSeconds": 240,
+    "callType": "Internal",
+    "cost": 4.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000064",
+    "subscriberId": "a1000001-0000-0000-0000-000000000013",
+    "destinationNumber": "74951234502",
+    "startTime": "2025-05-31T12:15:00",
+    "durationSeconds": 130,
+    "callType": "Internal",
+    "cost": 3.25
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000065",
+    "subscriberId": "a1000001-0000-0000-0000-000000000014",
+    "destinationNumber": "74952220002",
+    "startTime": "2025-05-31T13:40:00",
+    "durationSeconds": 720,
+    "callType": "Internal",
+    "cost": 12.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000066",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74951110001",
+    "startTime": "2025-06-01T08:30:00",
+    "durationSeconds": 190,
+    "callType": "City",
+    "cost": 9.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000067",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74951234504",
+    "startTime": "2025-06-01T09:45:00",
+    "durationSeconds": 80,
+    "callType": "Internal",
+    "cost": 2.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000068",
+    "subscriberId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "destinationNumber": "74957654325",
+    "startTime": "2025-06-01T11:10:00",
+    "durationSeconds": 420,
+    "callType": "Internal",
+    "cost": 7.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000069",
+    "subscriberId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "destinationNumber": "74959876544",
+    "startTime": "2025-06-01T12:30:00",
+    "durationSeconds": 300,
+    "callType": "City",
+    "cost": 10.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000070",
+    "subscriberId": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "destinationNumber": "74951234506",
+    "startTime": "2025-06-01T14:00:00",
+    "durationSeconds": 160,
+    "callType": "Internal",
+    "cost": 2.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000071",
+    "subscriberId": "a1000001-0000-0000-0000-000000000002",
+    "destinationNumber": "74951234511",
+    "startTime": "2025-06-01T15:20:00",
+    "durationSeconds": 50,
+    "callType": "Internal",
+    "cost": 0.67
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000072",
+    "subscriberId": "a1000001-0000-0000-0000-000000000004",
+    "destinationNumber": "74957777002",
+    "startTime": "2025-06-01T16:45:00",
+    "durationSeconds": 600,
+    "callType": "City",
+    "cost": 25.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000073",
+    "subscriberId": "a1000001-0000-0000-0000-000000000005",
+    "destinationNumber": "74951234510",
+    "startTime": "2025-06-02T08:15:00",
+    "durationSeconds": 110,
+    "callType": "Internal",
+    "cost": 2.75
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000074",
+    "subscriberId": "a1000001-0000-0000-0000-000000000006",
+    "destinationNumber": "74957654323",
+    "startTime": "2025-06-02T09:30:00",
+    "durationSeconds": 270,
+    "callType": "City",
+    "cost": 9.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000075",
+    "subscriberId": "a1000001-0000-0000-0000-000000000007",
+    "destinationNumber": "74951234505",
+    "startTime": "2025-06-02T11:00:00",
+    "durationSeconds": 35,
+    "callType": "Internal",
+    "cost": 0.58
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000076",
+    "subscriberId": "a1000001-0000-0000-0000-000000000008",
+    "destinationNumber": "74951119999",
+    "startTime": "2025-06-02T12:45:00",
+    "durationSeconds": 480,
+    "callType": "City",
+    "cost": 20.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000077",
+    "subscriberId": "a1000001-0000-0000-0000-000000000011",
+    "destinationNumber": "74951234508",
+    "startTime": "2025-06-02T14:10:00",
+    "durationSeconds": 200,
+    "callType": "Internal",
+    "cost": 3.33
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000078",
+    "subscriberId": "a1000001-0000-0000-0000-000000000012",
+    "destinationNumber": "74959876550",
+    "startTime": "2025-06-02T15:55:00",
+    "durationSeconds": 390,
+    "callType": "City",
+    "cost": 13.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000079",
+    "subscriberId": "a1000001-0000-0000-0000-000000000013",
+    "destinationNumber": "74952220003",
+    "startTime": "2025-06-02T17:20:00",
+    "durationSeconds": 145,
+    "callType": "Internal",
+    "cost": 3.63
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000080",
+    "subscriberId": "a1000001-0000-0000-0000-000000000014",
+    "destinationNumber": "74951234501",
+    "startTime": "2025-06-02T18:00:00",
+    "durationSeconds": 90,
+    "callType": "Internal",
+    "cost": 1.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000081",
+    "subscriberId": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    "destinationNumber": "74957654321",
+    "startTime": "2025-06-03T09:00:00",
+    "durationSeconds": 240,
+    "callType": "City",
+    "cost": 12.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000082",
+    "subscriberId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "destinationNumber": "74953330002",
+    "startTime": "2025-06-03T10:30:00",
+    "durationSeconds": 175,
+    "callType": "City",
+    "cost": 8.75
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000083",
+    "subscriberId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "destinationNumber": "74951110003",
+    "startTime": "2025-06-03T12:00:00",
+    "durationSeconds": 60,
+    "callType": "City",
+    "cost": 3.00
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000084",
+    "subscriberId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "destinationNumber": "74951234509",
+    "startTime": "2025-06-03T14:15:00",
+    "durationSeconds": 330,
+    "callType": "Internal",
+    "cost": 5.50
+  },
+  {
+    "id": "c1000001-0000-0000-0000-000000000085",
+    "subscriberId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "destinationNumber": "74951234502",
+    "startTime": "2025-06-03T16:40:00",
+    "durationSeconds": 120,
+    "callType": "Internal",
+    "cost": 2.00
+  }
+]

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AtsBillingSystem.Application\AtsBillingSystem.Application.csproj" />
+    <ProjectReference Include="..\AtsBillingSystem.Data\AtsBillingSystem.Data.csproj" />
+    <ProjectReference Include="..\AtsBillingSystem.Domain\AtsBillingSystem.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Infrastructure\Converters\CallTypeConverter.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Update="ViewModels\SubscribersViewModel.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+  </ItemGroup>
+
+</Project>
