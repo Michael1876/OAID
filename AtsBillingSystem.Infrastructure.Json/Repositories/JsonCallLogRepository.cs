@@ -29,7 +29,8 @@ public sealed class JsonCallLogRepository : ICallLogRepository
     {
         try
         {
-            await EnsureDataLoadedAsync();
+            // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ _fetchLock.
+            await _apiClient.FetchAllAsync();
 
             var query = _store.GetCallRecordsSnapshot().AsEnumerable();
 
@@ -38,7 +39,7 @@ public sealed class JsonCallLogRepository : ICallLogRepository
 
             if (!string.IsNullOrWhiteSpace(phoneFilter))
             {
-                var lowerFilter = phoneFilter.ToLowerInvariant(); // Безопасно для всех версий .NET
+                var lowerFilter = phoneFilter.ToLowerInvariant();
                 var subscribersByPhone = _store.GetSubscribersSnapshot()
                     .Where(s => !string.IsNullOrEmpty(s.PhoneNumber) && s.PhoneNumber.ToLowerInvariant().Contains(lowerFilter))
                     .Select(s => s.Id)
@@ -57,22 +58,14 @@ public sealed class JsonCallLogRepository : ICallLogRepository
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Ошибка при поиске и фильтрации журнала звонков.");
-            throw; // Прокидываем в ViewModel
+            _logger.LogError(ex, "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
+            throw;
         }
     }
 
     public async Task AddRangeAsync(IEnumerable<DomainCallRecord> records)
     {
-        await EnsureDataLoadedAsync();
+        await _apiClient.FetchAllAsync();
         _store.AddCallRecords(records);
     }
-
-private async Task EnsureDataLoadedAsync()
-{
-    // Проверяем именно журнал звонков. Если он пуст — просим клиент загрузить данные.
-    // SimulatedJsonApiClient под капотом сам разберется с блокировками через _fetchLock и флаг _isLoaded
-    if (_store.GetCallRecordsSnapshot().Count == 0)
-        await _apiClient.FetchAllAsync();
-}
 }

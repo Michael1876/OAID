@@ -6,7 +6,7 @@ using AtsBillingSystem.Domain.Models;
 using AtsBillingSystem.Domain.Interfaces.UseCases;
 using AtsBillingSystem.Domain.Interfaces.Infrastructure;
 using AtsBillingSystem.UI.Infrastructure;
-using System.Linq; // Требуется для .Count() и .Any()
+using System.Linq;
 
 namespace AtsBillingSystem.UI.ViewModels
 {
@@ -16,6 +16,7 @@ namespace AtsBillingSystem.UI.ViewModels
         private readonly ILogger<CallLogViewModel> _logger;
         private readonly IDialogService _dialogService;
         private readonly int _pageSize = 50;
+        private bool _isInitialized = false;
 
         public ObservableCollection<DomainCallRecord> Calls { get; } = new();
 
@@ -64,6 +65,7 @@ namespace AtsBillingSystem.UI.ViewModels
         public AsyncRelayCommand ApplyFilterCommand { get; }
         public AsyncRelayCommand NextPageCommand { get; }
         public AsyncRelayCommand PreviousPageCommand { get; }
+        public AsyncRelayCommand LoadInitialDataCommand { get; }
 
         public CallLogViewModel(
             IGetCallLogsUseCase getCallLogsUseCase,
@@ -87,12 +89,22 @@ namespace AtsBillingSystem.UI.ViewModels
                 async () => await LoadCallLogsAsync(targetPage: CurrentPage - 1),
                 () => CurrentPage > 1 && !IsLoading);
 
-            // Инициализация при открытии окна
+            LoadInitialDataCommand = new AsyncRelayCommand(async () =>
+            {
+                if (!_isInitialized)
+                {
+                    await LoadCallLogsAsync(targetPage: 1);
+                    _isInitialized = true;
+                }
+            });
+
             _logger.LogInformation("CallLogViewModel инициализирована.");
-            _ = LoadCallLogsAsync(targetPage: 1);
+            // ИСПРАВЛЕНИЕ АРХИТЕКТУРЫ: Убран fire-and-forget вызов _ = LoadCallLogsAsync из конструктора.
+            // Теперь UI должен сам запросить данные, когда вкладка откроется (связано в MainViewModel) 
+            // или юзер нажмет "Применить".
         }
 
-        private async Task LoadCallLogsAsync(int targetPage)
+        public async Task LoadCallLogsAsync(int targetPage)
         {
             if (IsLoading) return;
 
@@ -102,9 +114,9 @@ namespace AtsBillingSystem.UI.ViewModels
 
                 _logger.LogInformation(
                     "Загрузка журнала звонков. Страница: {Page}, StartDate: {StartDate}, EndDate: {EndDate}, Phone: {Phone}",
-                    targetPage, 
-                    FilterStartDate, 
-                    FilterEndDate, 
+                    targetPage,
+                    FilterStartDate,
+                    FilterEndDate,
                     string.IsNullOrEmpty(SearchPhoneNumber) ? "пусто" : SearchPhoneNumber);
 
                 var result = await _getCallLogsUseCase.ExecuteAsync(
@@ -125,19 +137,17 @@ namespace AtsBillingSystem.UI.ViewModels
                         Calls.Add(record);
                     }
 
-                    _logger.LogInformation("Загрузка успешно завершена. Получено записей: {Count}. Всего страниц: {TotalPages}", 
+                    _logger.LogInformation("Загрузка успешно завершена. Получено записей: {Count}. Всего страниц: {TotalPages}",
                         result.Items.Count(), TotalPages);
-                    
-                    // ДИАГНОСТИКА: если данных нет - мы выдаем системное предупреждение
+
                     if (!result.Items.Any() && string.IsNullOrEmpty(SearchPhoneNumber) && FilterStartDate == null && FilterEndDate == null)
                     {
-                        _logger.LogWarning("ВНИМАНИЕ: Инфраструктура вернула 0 записей! Похоже, JSON-файлы не загрузились в SimulatedJsonApiClient.");
+                        _logger.LogWarning("ВНИМАНИЕ: Инфраструктура вернула 0 записей! Проверь, физически ли лежит call-records.json в папке MockApiData/api/ и не пустой ли он.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                // ИСПРАВЛЕНИЕ КОМПИЛЯЦИИ: ex ВСЕГДА должен идти первым аргументом.
                 _logger.LogError(ex, "Произошла системная ошибка при загрузке журнала звонков.");
                 _dialogService.ShowMessage("Ошибка", $"Произошла системная ошибка при получении данных:\n{ex.Message}");
             }
