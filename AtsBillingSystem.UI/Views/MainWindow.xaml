@@ -8,7 +8,6 @@
         Background="{DynamicResource BackgroundColor}">
 
     <Window.Resources>
-        <!-- Маппинг ViewModel -> View. WPF сам отрисует нужную View в ContentControl -->
         <DataTemplate DataType="{x:Type viewmodels:BillingProcessingViewModel}">
             <views:BillingProcessingView />
         </DataTemplate>
@@ -28,9 +27,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <!-- Боковое меню -->
             <ColumnDefinition Width="250" />
-            <!-- Основная область контента -->
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -59,7 +56,6 @@
             </StackPanel>
         </Border>
 
-        <!-- Область, которая динамически меняется в зависимости от свойства CurrentViewModel -->
         <Grid Grid.Column="1" Margin="20">
             <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>

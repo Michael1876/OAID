@@ -13,20 +13,17 @@ namespace AtsBillingSystem.UI.ViewModels
             set => SetProperty(ref _currentViewModel, value);
         }
 
-        // Команды навигации
         public ICommand NavigateToBillingCommand { get; }
         public ICommand NavigateToSubscribersCommand { get; }
         public ICommand NavigateToCallLogCommand { get; }
         public ICommand NavigateToTariffsCommand { get; }
 
-        // DI-контейнер (в App.xaml.cs) сам инжектит все необходимые ViewModel
         public MainViewModel(
             BillingProcessingViewModel billingViewModel,
             SubscribersViewModel subscribersViewModel,
             CallLogViewModel callLogViewModel,
             TariffsViewModel tariffsViewModel)
         {
-            // Устанавливаем стартовый экран
             _currentViewModel = subscribersViewModel;
 
             NavigateToBillingCommand = new AsyncRelayCommand(() =>
@@ -44,7 +41,9 @@ namespace AtsBillingSystem.UI.ViewModels
             NavigateToCallLogCommand = new AsyncRelayCommand(() =>
             {
                 CurrentViewModel = callLogViewModel;
-                // Загружаем данные только в момент перехода на вкладку (ленивая загрузка)
+                // ИСПРАВЛЕНИЕ: Вызываем загрузку данных ТОЛЬКО когда пользователь реально зашел на вкладку.
+                // Используем Execute(null), так как интерфейс ICommand не имеет ExecuteAsync.
+                // Команда внутри сама выполнит Task асинхронно без блокировки потока UI.
                 callLogViewModel.LoadInitialDataCommand.Execute(null);
 
                 return System.Threading.Tasks.Task.CompletedTask;

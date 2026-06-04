@@ -17,7 +17,6 @@ namespace AtsBillingSystem.Application.UseCases
 
         public async Task<IEnumerable<DomainTariff>> ExecuteAsync()
         {
-            // Получаем только активные тарифы (без архивных) через репозиторий
             return await _tariffRepository.GetActiveAsync();
         }
     }

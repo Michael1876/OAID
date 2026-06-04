@@ -38,10 +38,15 @@ namespace AtsBillingSystem.UI
             services.AddScoped<IGetSubscribersPagedUseCase, GetSubscribersPagedUseCase>();
             services.AddScoped<IGetCallLogsUseCase, GetCallLogsUseCase>();
 
+            services.AddScoped<IGetActiveTariffsUseCase, GetActiveTariffsUseCase>();
+
             services.AddSingleton<IDialogService, WpfDialogService>();
             services.AddTransient<BillingProcessingViewModel>();
             services.AddTransient<SubscribersViewModel>();
             services.AddTransient<CallLogViewModel>();
+
+            services.AddTransient<TariffsViewModel>();
+
             services.AddTransient<MainViewModel>();
             services.AddTransient<Views.MainWindow>();
 
