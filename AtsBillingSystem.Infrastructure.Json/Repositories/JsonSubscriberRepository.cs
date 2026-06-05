@@ -69,7 +69,6 @@ public sealed class JsonSubscriberRepository : ISubscriberRepository
         if (subscriber == null) throw new ArgumentNullException(nameof(subscriber));
         await EnsureDataLoadedAsync();
 
-        // Потокобезопасно добавляем в кэш хранилища
         lock (_store)
         {
             _store.Subscribers.Add(subscriber);

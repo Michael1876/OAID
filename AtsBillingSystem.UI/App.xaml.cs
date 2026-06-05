@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AtsBillingSystem.Domain.Interfaces.Infrastructure;
 using AtsBillingSystem.Domain.Interfaces.UseCases;
 using AtsBillingSystem.Domain.Interfaces.Services;
+using AtsBillingSystem.Domain.Models;
 using AtsBillingSystem.Application.Services;
 using AtsBillingSystem.Application.UseCases;
 using AtsBillingSystem.Infrastructure.Json;
@@ -37,22 +38,28 @@ namespace AtsBillingSystem.UI
             services.AddScoped<IProcessBillingUseCase, ProcessBillingUseCase>();
             services.AddScoped<IGetSubscribersPagedUseCase, GetSubscribersPagedUseCase>();
             services.AddScoped<IGetCallLogsUseCase, GetCallLogsUseCase>();
-
             services.AddScoped<IGetActiveTariffsUseCase, GetActiveTariffsUseCase>();
+            services.AddScoped<IAddSubscriberUseCase, AddSubscriberUseCase>();
+            services.AddScoped<IUpdateSubscriberUseCase, UpdateSubscriberUseCase>();
 
             services.AddSingleton<IDialogService, WpfDialogService>();
             services.AddTransient<BillingProcessingViewModel>();
             services.AddTransient<SubscribersViewModel>();
             services.AddTransient<CallLogViewModel>();
-
             services.AddTransient<TariffsViewModel>();
-
             services.AddTransient<MainViewModel>();
             services.AddTransient<Views.MainWindow>();
 
+            services.AddTransient<Func<DomainSubscriber?, SubscriberEditorViewModel>>(provider =>
+                subscriber => new SubscriberEditorViewModel(
+                    subscriber,
+                    provider.GetRequiredService<IAddSubscriberUseCase>(),
+                    provider.GetRequiredService<IUpdateSubscriberUseCase>(),
+                    provider.GetRequiredService<IGetActiveTariffsUseCase>(),
+                    provider.GetRequiredService<IDialogService>()));
+
             ServiceProvider = services.BuildServiceProvider();
 
-            // Окно показываем сразу — без блокирующей загрузки на UI-потоке (иначе deadlock WPF).
             var mainWindow = ServiceProvider.GetRequiredService<Views.MainWindow>();
             mainWindow.DataContext = ServiceProvider.GetRequiredService<MainViewModel>();
             mainWindow.Show();

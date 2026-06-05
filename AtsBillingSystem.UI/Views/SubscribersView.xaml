@@ -27,6 +27,9 @@
                            Foreground="{DynamicResource TextColor}" Margin="0,0,30,0"
                            VerticalAlignment="Center"/>
 
+                <Button Content="Добавить" Command="{Binding AddSubscriberCommand}" Style="{DynamicResource MaterialButtonStyle}" Margin="0,0,10,0" Padding="15,5"/>
+                <Button Content="Редактировать" Command="{Binding EditSubscriberCommand}" Style="{DynamicResource MaterialButtonStyle}" Margin="0,0,20,0" Padding="15,5" Background="#03A9F4"/>
+
                 <TextBlock Text="Загрузка..." Margin="0,0,20,0" 
                            Foreground="{DynamicResource PrimaryColor}"
                            VerticalAlignment="Center"
@@ -36,6 +39,7 @@
 
         <DataGrid Grid.Row="1" 
                   ItemsSource="{Binding Subscribers}" 
+                  SelectedItem="{Binding SelectedSubscriber, Mode=TwoWay}"
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"

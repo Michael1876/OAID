@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using AtsBillingSystem.Domain.Models;
 using AtsBillingSystem.Domain.Interfaces.UseCases;
 using AtsBillingSystem.UI.Infrastructure;
@@ -10,11 +11,23 @@ namespace AtsBillingSystem.UI.ViewModels
 {
     public class SubscribersViewModel : ViewModelBase
     {
-        // ВНИМАНИЕ: Подставь сюда свой реальный интерфейс из файла Interfaces/UseCases.cs
         private readonly IGetSubscribersPagedUseCase _getSubscribersUseCase;
+        private DomainSubscriber? _selectedSubscriber;
 
-        // ObservableCollection сама уведомляет UI о добавлении/удалении элементов
         public ObservableCollection<DomainSubscriber> Subscribers { get; } = new();
+
+        public DomainSubscriber? SelectedSubscriber
+        {
+            get => _selectedSubscriber;
+            set
+            {
+                if (SetProperty(ref _selectedSubscriber, value))
+                {
+                    // Делегируем обновление состояния команд глобальному CommandManager WPF
+                    CommandManager.InvalidateRequerySuggested();
+                }
+            }
+        }
 
         private int _currentPage = 1;
         public int CurrentPage
@@ -40,6 +53,10 @@ namespace AtsBillingSystem.UI.ViewModels
         public AsyncRelayCommand LoadPageCommand { get; }
         public AsyncRelayCommand NextPageCommand { get; }
         public AsyncRelayCommand PreviousPageCommand { get; }
+        public AsyncRelayCommand AddSubscriberCommand { get; }
+        public AsyncRelayCommand EditSubscriberCommand { get; }
+
+        public event Action<DomainSubscriber?>? NavigateToEditorRequested;
 
         public SubscribersViewModel(IGetSubscribersPagedUseCase getSubscribersUseCase)
         {
@@ -55,8 +72,18 @@ namespace AtsBillingSystem.UI.ViewModels
                 async () => { CurrentPage--; await LoadSubscribersAsync(); },
                 () => CurrentPage > 1 && !IsLoading);
 
-            // Инициируем первичную загрузку (в реальном проекте лучше делать это через события навигации, 
-            // но для простоты вызываем асинхронную команду прямо здесь без await)
+            AddSubscriberCommand = new AsyncRelayCommand(() =>
+            {
+                NavigateToEditorRequested?.Invoke(null);
+                return Task.CompletedTask;
+            });
+
+            EditSubscriberCommand = new AsyncRelayCommand(() =>
+            {
+                NavigateToEditorRequested?.Invoke(SelectedSubscriber);
+                return Task.CompletedTask;
+            }, () => SelectedSubscriber != null);
+
             LoadPageCommand.Execute(null);
         }
 

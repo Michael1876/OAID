@@ -32,12 +32,10 @@ namespace AtsBillingSystem.Data.Repositories
 
         public async Task<PagedResult<DomainSubscriber>> GetPagedAsync(int page, int pageSize)
         {
-            // 1. Считаем общее количество записей в БД (нужно для вычисления страниц в UI)
             var totalCount = await _context.Subscribers.CountAsync();
 
-            // 2. Делаем эффективную выборку из PostgreSQL с использованием LIMIT/OFFSET
             var items = await _context.Subscribers
-                .AsNoTracking() // Отключаем трекинг для Read-Only запроса, это сильно ускоряет выборку
+                .AsNoTracking()
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .Select(entity => new DomainSubscriber
@@ -53,11 +51,9 @@ namespace AtsBillingSystem.Data.Repositories
                 })
                 .ToListAsync();
 
-            // 3. Возвращаем упакованный результат
             return new PagedResult<DomainSubscriber>(items, totalCount, page, pageSize);
         }
 
-        // ЗАЩИТА ОТ N+1
         public async Task<Dictionary<string, DomainSubscriber>> GetByPhonesBatchAsync(IEnumerable<string> phones)
         {
             var entities = await _context.Subscribers
@@ -74,27 +70,40 @@ namespace AtsBillingSystem.Data.Repositories
             if (entity != null)
             {
                 domainSubscriber.UpdateEntity(entity);
-                // ВАЖНО: устанавливаем оригинальный RowVersion, чтобы EF мог проверить, 
-                // не изменил ли кто-то запись в БД, пока мы ее редактировали в UI
                 _context.Entry(entity).Property(e => e.RowVersion).OriginalValue = domainSubscriber.RowVersion;
             }
         }
 
         public Task UpdateBalancesBatchAsync(IEnumerable<DomainSubscriber> subscribersToUpdate)
         {
-            // Здесь в идеале использовать Bulk Update (например, efcore.bulkextensions),
-            // но для стандартного EF мы аттачим измененные сущности к контексту
             foreach (var subDomain in subscribersToUpdate)
             {
                 var entity = new SubscriberEntity { Id = subDomain.Id };
                 _context.Subscribers.Attach(entity);
                 entity.Balance = subDomain.Balance;
 
-                // Помечаем только поле Balance как измененное (микро-оптимизация SQL-запроса)
                 _context.Entry(entity).Property(x => x.Balance).IsModified = true;
             }
-            // SaveChangesAsync будет вызван из UseCase через UnitOfWork!
             return Task.CompletedTask;
+        }
+
+        public async Task AddAsync(DomainSubscriber subscriber)
+        {
+            if (subscriber == null) throw new ArgumentNullException(nameof(subscriber));
+
+            var entity = new SubscriberEntity
+            {
+                Id = subscriber.Id,
+                FullName = subscriber.FullName,
+                ContractNumber = subscriber.ContractNumber,
+                PhoneNumber = subscriber.PhoneNumber,
+                Balance = subscriber.Balance,
+                IsActive = subscriber.IsActive,
+                TariffId = subscriber.TariffId,
+                RowVersion = subscriber.RowVersion
+            };
+
+            await _context.Subscribers.AddAsync(entity);
         }
     }
 }
