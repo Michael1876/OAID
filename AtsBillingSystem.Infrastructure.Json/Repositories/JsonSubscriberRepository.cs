@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using AtsBillingSystem.Domain.Common;
 using AtsBillingSystem.Domain.Interfaces.Repositories;
 using AtsBillingSystem.Domain.Models;
@@ -58,6 +62,18 @@ public sealed class JsonSubscriberRepository : ISubscriberRepository
     {
         await EnsureDataLoadedAsync();
         _store.UpdateBalances(subscribersToUpdate);
+    }
+
+    public async Task AddAsync(DomainSubscriber subscriber)
+    {
+        if (subscriber == null) throw new ArgumentNullException(nameof(subscriber));
+        await EnsureDataLoadedAsync();
+
+        // Потокобезопасно добавляем в кэш хранилища
+        lock (_store)
+        {
+            _store.Subscribers.Add(subscriber);
+        }
     }
 
     private async Task EnsureDataLoadedAsync()

@@ -15,6 +15,7 @@ namespace AtsBillingSystem.Domain.Interfaces.Repositories
         Task UpdateAsync(DomainSubscriber domainSubscriber);
         // Массовое обновление балансов за 1 запрос
         Task UpdateBalancesBatchAsync(IEnumerable<DomainSubscriber> newBalances);
+        Task AddAsync(DomainSubscriber subscriber);
     }
 
     public interface ICallLogRepository
