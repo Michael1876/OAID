@@ -58,6 +58,7 @@ namespace AtsBillingSystem.Domain.Interfaces.Services
     {
         Task<IEnumerable<ParsedCallDto>> ParseAsync(string filePath);
         bool ValidateFileHash(string filePath);
+        void MarkFileAsProcessed(string filePath);
     }
 
     public interface IAuthService

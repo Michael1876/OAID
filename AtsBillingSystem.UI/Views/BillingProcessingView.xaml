@@ -6,7 +6,7 @@
              xmlns:viewmodels="clr-namespace:AtsBillingSystem.UI.ViewModels"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:BillingProcessingViewModel}"
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="600" d:DesignWidth="800"
              Background="Transparent">
 
     <UserControl.Resources>
@@ -19,7 +19,7 @@
                 Padding="40"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
-                MinHeight="250" MinWidth="450">
+                MinHeight="250" MinWidth="550" MaxWidth="700">
             <Border.Effect>
                 <DropShadowEffect Color="Black" Opacity="0.1" BlurRadius="10" ShadowDepth="2"/>
             </Border.Effect>
@@ -53,6 +53,25 @@
                         Style="{DynamicResource MaterialButtonStyle}"
                         Width="200" Height="40"
                         HorizontalAlignment="Center"/>
+
+                <StackPanel Margin="0,30,0,0" Visibility="{Binding HasErrors, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <TextBlock Text="Ошибки при обработке строк (эти звонки пропущены):" 
+                               Foreground="#D32F2F" 
+                               FontWeight="SemiBold" 
+                               Margin="0,0,0,10"/>
+
+                    <Border BorderBrush="{DynamicResource DividerColor}" BorderThickness="1" CornerRadius="4" MaxHeight="150">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <ItemsControl ItemsSource="{Binding FailedItems}" Margin="10">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Foreground="#D32F2F" Margin="0,2" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Border>
+                </StackPanel>
             </StackPanel>
         </Border>
     </Grid>

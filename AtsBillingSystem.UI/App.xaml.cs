@@ -63,10 +63,7 @@ namespace AtsBillingSystem.UI
         private static JsonApiOptions LoadJsonApiOptions()
         {
             var options = new JsonApiOptions();
-
-#if DEBUG
             MergeJsonFile(options, "appsettings.Development.json");
-#endif
             MergeJsonFile(options, "appsettings.json");
 
             return options;

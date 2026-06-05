@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using AtsBillingSystem.Domain.Interfaces.Infrastructure;
 using AtsBillingSystem.Domain.Interfaces.UseCases;
@@ -10,6 +11,15 @@ namespace AtsBillingSystem.UI.ViewModels
     {
         private readonly IProcessBillingUseCase _processBillingUseCase;
         private readonly IDialogService _dialogService;
+
+        public ObservableCollection<string> FailedItems { get; } = new();
+
+        private bool _hasErrors;
+        public bool HasErrors
+        {
+            get => _hasErrors;
+            set => SetProperty(ref _hasErrors, value);
+        }
 
         private int _progressBarValue;
         public int ProgressBarValue
@@ -36,41 +46,64 @@ namespace AtsBillingSystem.UI.ViewModels
 
         public BillingProcessingViewModel(IProcessBillingUseCase processBillingUseCase, IDialogService dialogService)
         {
-            _processBillingUseCase = processBillingUseCase;
-            _dialogService = dialogService;
+            _processBillingUseCase = processBillingUseCase ?? throw new ArgumentNullException(nameof(processBillingUseCase));
+            _dialogService = dialogService ?? throw new ArgumentNullException(nameof(dialogService));
+
+            // Кнопка кликабельна только тогда, когда не запущен фоновый процесс
             SelectFileAndExecuteAsyncCommand = new AsyncRelayCommand(ExecuteImportAsync, () => !IsProcessing);
         }
 
         private async Task ExecuteImportAsync()
         {
-            var filePath = _dialogService.OpenFileDialog("CSV Files (*.csv)|*.csv");
-            if (string.IsNullOrEmpty(filePath)) return;
+            string filePath = string.Empty;
 
-            IsProcessing = true;
-            ProgressBarValue = 0;
-            StatusMessage = "Обработка файла...";
-
-            // Action, который мы передадим в глубины слоя Application
-            Action<int> updateProgress = percent =>
+            try
             {
-                // В WPF/Avalonia привязка данных (Binding) сама разруливает потоки для простых свойств,
-                // но если бы мы меняли коллекции (ObservableCollection), тут потребовался бы Dispatcher
-                ProgressBarValue = percent;
-            };
+                filePath = _dialogService.OpenFileDialog("CSV Files (*.csv)|*.csv");
+                if (string.IsNullOrEmpty(filePath)) return;
 
-            var result = await _processBillingUseCase.ExecuteAsync(filePath, updateProgress);
+                IsProcessing = true;
+                HasErrors = false;
+                FailedItems.Clear();
+                ProgressBarValue = 0;
+                StatusMessage = "Обработка файла...";
 
-            IsProcessing = false;
+                Action<int> updateProgress = percent =>
+                {
+                    ProgressBarValue = percent;
+                };
 
-            if (result.IsSuccess)
-            {
-                StatusMessage = "Импорт успешно завершен.";
-                _dialogService.ShowMessage("Успех", "Тарификация успешно применена, данные сохранены.");
+                var result = await _processBillingUseCase.ExecuteAsync(filePath, updateProgress);
+
+                if (result.FailedItems != null && result.FailedItems.Count > 0)
+                {
+                    HasErrors = true;
+                    foreach (var item in result.FailedItems)
+                    {
+                        FailedItems.Add(item);
+                    }
+                }
+
+                if (result.IsSuccess)
+                {
+                    StatusMessage = HasErrors ? "Импорт завершен, но часть строк пропущена (см. ниже)." : "Импорт успешно завершен.";
+                    _dialogService.ShowMessage("Успех", "Тарификация успешно применена, данные сохранены.");
+                }
+                else
+                {
+                    StatusMessage = "Ошибка импорта.";
+                    _dialogService.ShowMessage("Ошибка", result.ErrorMessage);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                StatusMessage = "Ошибка импорта.";
-                _dialogService.ShowMessage("Ошибка", result.ErrorMessage);
+                StatusMessage = "Критический сбой при обработке.";
+                _dialogService.ShowMessage("Критическая ошибка", $"При выполнении операции произошло системное исключение:\n{ex.Message}");
+            }
+            finally
+            {
+                // Кнопка гарантированно разблокируется при любом исходе
+                IsProcessing = false;
             }
         }
     }
